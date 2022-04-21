@@ -1,6 +1,4 @@
 <?php
-ini_set('allow_url_fopen',1);
-//turn on error reporting
 ini_set('display_errors',1);
 error_reporting(E_ALL);
 
@@ -16,6 +14,40 @@ $f3->route('GET /', function(){
     echo $view->render('views/home.html');
 }
 );
+
+//Define a home route
+$f3->route('GET /home', function(){
+    $view = new Template();
+    echo $view->render('views/home.html');
+}
+);
+
+
+//Define a Features route
+$f3->route('GET /Features', function(){
+
+    $view = new Template();
+    echo $view->render('views/Features.html');
+});
+//Define a views route
+$f3->route('GET /entry', function(){
+
+    $view = new Template();
+    echo $view->render('views/entry.html');
+});
+
+//Define a LoginPage route
+$f3->route('GET /LoginPage', function(){
+
+    $view = new Template();
+    echo $view->render('views/LoginPage.html');
+}
+);
+//Define a Pricing route
+$f3->route('GET /Pricing', function(){
+    $view = new Template();
+    echo $view->render('views/Pricing.html');
+});
 
 //runs fat free
 $f3->run();
