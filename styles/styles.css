@@ -9,3 +9,13 @@
 p{
     color:black;
 }
+.error {
+    color: darkred;
+    display: none;
+}
+li{
+    list-style-type: none;
+}
+ul{
+    list-style-type: none;
+}
