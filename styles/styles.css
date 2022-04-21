@@ -1,0 +1,11 @@
+.btn-primary{
+    margin-top: 3em;
+    background-color: rgba(8, 128, 232, 0.71);
+    border: none;
+}
+.btn-primary:hover{
+    background-color: #1382ce !important;
+}
+p{
+    color:black;
+}

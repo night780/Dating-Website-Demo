@@ -1,0 +1,12 @@
+{
+  "name": "jjonasgr/public_html/328/dating",
+  "authors": [
+    {
+    "name": "Jacob Jonas",
+    "email": "jonas.jacob@student.greenriver.edu"
+    }
+  ],
+  "require": {
+    "bcosca/fatfree-core": "dev-master"
+}
+}
