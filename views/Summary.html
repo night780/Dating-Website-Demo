@@ -1,15 +1,60 @@
 <include href="views/header.html"></include>
+<br>
+<br>
+<br>
+<div class = "container border rounded">
+<div class = "row">
+
+<table class="table col-sm-7 border rounded">
+    <tbody class="float-left">
+    <tr>
+        <th>Name:</th>
+        <td>{{ @SESSION.fname }} {{ @SESSION.lname }}</td>
+    </tr>
+    <tr>
+        <th>Age:</th>
+        <td>{{ @SESSION.Age }}</td>
+    </tr>
+    <tr>
+        <th>Gender: </th>
+        <td>{{ @SESSION.gridRadios1 }}</td>
+    </tr>
+    <tr>
+        <th>Phone Number:</th>
+        <td>{{ @SESSION.Phone }}</td>
+    </tr>
+    <tr>
+        <th>Email: </th>
+        <td>{{ @SESSION.email }}</td>
+    </tr>
+    <tr>
+        <th>State: </th>
+        <td>{{ @SESSION.state }}</td>
+    </tr>
+    <tr>
+        <th>Seeking: </th>
+        <td>{{ @SESSION.gridRadios }}</td>
+    </tr>
+    <tr>
+        <th>Interests: </th>
+        <td>{{ @SESSION.conds }}</td>
+    </tr>
+    </tbody>
+    </thead>
+</table>
+    <img src="images/PpPic.jpg" class=" col-sm-5 rounded float-right" alt="Profile Pic">
+
+    <!--    <div class = "col-md-12">-->
+<!--    <img src="images/PpPic.jpg" class=" rounded float-right" alt="Profile Pic">-->
+<!--</div>-->
 
 
-<p>Name: {{ @SESSION.fname }} {{ @SESSION.lname }}</p>
-<p>Age: {{ @SESSION.Age }}</p>
-<p>Gender: {{ @SESSION.gridRadios1 }}</p>
-<p>Phone Number: {{ @SESSION.Phone }}</p>
+</div>
+    <p>Bio: </p>
+    <p>{{ @SESSION.aboutMe }}</p>
 
-<p>Email: {{ @SESSION.email }}</p>
-<p>State: {{ @SESSION.state }}</p>
-<p>Seeking: {{ @SESSION.gridRadios }}</p>
-<p>Interests : {{ @SESSION.conds }}</p>
-<p>AboutMe: {{ @SESSION.aboutMe }}</p>
+<div class="col-md-12 text-center">
+    <a href="home" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Contact Me!</a>
+</div><br></div>
 </body>
 </html>
