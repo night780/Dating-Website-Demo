@@ -56,7 +56,7 @@ $f3->route('POST /CreateProfile2', function(){
     $_SESSION['fname']=$_POST['fname'];
     $_SESSION['lname']=$_POST['lname'];
     $_SESSION['Age']=$_POST['Age'];
-    $_SESSION['gridRadios']=$_POST['gridRadios'];
+    $_SESSION['gridRadios1']=$_POST['gridRadios1'];
     $_SESSION['Phone']=$_POST['Phone'];
 
     $view = new Template();
@@ -65,15 +65,23 @@ $f3->route('POST /CreateProfile2', function(){
 //Define a createProfile3 route
 $f3->route('POST /CreateProfile3', function(){
     var_dump($_POST);
-    $_SESSION['fname']=$_POST['fname'];
-    $_SESSION['lname']=$_POST['lname'];
-    $_SESSION['Age']=$_POST['Age'];
     $_SESSION['gridRadios']=$_POST['gridRadios'];
+    $_SESSION['state']=$_POST['state'];
+    $_SESSION['aboutMe']=$_POST['aboutMe'];
+    $_SESSION['email']=$_POST['email'];
     $view = new Template();
     echo $view->render('views/createProfile3.html');
 });
 //Define a summary route
 $f3->route('GET|POST /summary', function(){
+    var_dump ($_POST);
+    if (empty($_POST['conds'])) {
+        $conds = "No Hobby selected";
+    }
+    else {
+        $conds = implode(", ", $_POST['conds']);
+    }
+    $_SESSION['conds'] = $conds;
     $view = new Template();
     echo $view->render('views/Summary.html');
 });
