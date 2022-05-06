@@ -1,34 +1,4 @@
-<!--328-temp/hello/views/home.html-->
-
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="styles/styles.css">
-
-    <title>Mingle & Match</title>
-</head>
-<body>
-<br>
-<h1 class = "text-center">Mingle & Match Dating </h1>
-
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-
-        <div class=" navbar" >
-            <div class="navbar-nav">
-                <a class="nav-link active" aria-current="page" href="home">Home</a>
-                <a class="nav-link" href="Features">Features</a>
-                <a class="nav-link" href="Pricing">Pricing</a>
-                <a class="nav-link" href="LoginPage">Login</a>
-        </div>
-    </div>
-</nav>
+<include href="views/header.html"></include>
 <br>
 <div class="container">
     <div class="row d-flex justify-content-center bg-light">
@@ -48,7 +18,7 @@
 used &nbsp instead to avoid inline styling-->
             </div>
             <div class="col-md-12 text-center">
-                <a href="LoginPage" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Create a Profile!</a>
+                <a href="createProfile" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Create a Profile!</a>
         </div></div>
         <div class="col-md-5">
 <img src="images/couple.jpg" class="img-fluid rounded float-right" alt="Image of happy couple">
