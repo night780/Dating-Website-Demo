@@ -1,10 +1,16 @@
 <include href="views/header.html"></include>
+<!--Summary.html
+@Author Jacob Jonas
+@Date 5/8/22
+
+Prints all form data using session vars from index.php
+-->
 <br>
 <br>
 <br>
 <div class = "container border rounded">
 <div class = "row">
-
+<!--Prints in a table-->
 <table class="table col-sm-7 border rounded">
     <tbody class="float-left">
     <tr>
@@ -42,6 +48,7 @@
     </tbody>
     </thead>
 </table>
+<!--   Blank profile picture -->
     <img src="images/PpPic.jpg" class=" col-sm-5 rounded float-right" alt="Profile Pic">
 
     <!--    <div class = "col-md-12">-->
@@ -50,9 +57,10 @@
 
 
 </div>
+<!--    Prints outside of table to match rubric formatting-->
     <p>Bio: </p>
     <p>{{ @SESSION.aboutMe }}</p>
-
+<!--Button points to nowhere-->
 <div class="col-md-12 text-center">
     <a href="home" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Contact Me!</a>
 </div><br></div>

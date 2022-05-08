@@ -1,3 +1,8 @@
+<!--createProfile.html
+@Author Jacob Jonas
+@Date 5/8/22
+-->
+
 <include href="views/header.html"></include>
 <div class = "container border rounded">
 
@@ -9,28 +14,32 @@
 <hr class="style1">
 <br>
 
-
+<!--Form Start-->
 <form class = "container" method="post" action = "createProfile2">
     <div class = "row">
     <div class = "col-lg-5">
         <div class="form-group">
+<!--            First Name -->
             <label for="fname">First Name</label>
             <input type="text" class="form-control " id="fname" name="fname">
         </div>
         <div class="form-group ">
+<!--            Last name -->
             <label for="lname">Last Name</label>
             <input type="text" class="form-control " id="lname" name = "lname">
         </div>
         </div>
+<!--        Notes-->
         <p class = "col-lg-3 border rounded bg-light" id = "Info"><b>Notes: </b>All information entered is protected by out privacy
         policy. Profile information can only be viewed with your permission</p>
 
     <div class="form-group col-lg-5">
+<!--        Age -->
         <label for="Age">Age</label>
         <input type="text" class="form-control" id="Age" name="Age">
 <br>
 
-
+<!--What is your gender-->
             <label >Gender</label>
             <div class="form-check col-lg-11">
                 <br>
@@ -50,13 +59,14 @@
 
                     </div>
 <br>
-
+<!--Phone number-->
         <div class="form-group col-lg-5">
             <label for="Phone">Phone Number</label>
             <input type="text" class="form-control" id="Phone" name = "Phone">
 
         </div>
     <div class="text-right">
+<!--        submit-->
         <button class="btn btn-primary" type="submit">Next</button>
     </div>
 </form>
