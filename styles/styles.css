@@ -19,3 +19,30 @@ li{
 ul{
     list-style-type: none;
 }
+/*.form-check-label{*/
+/*    padding-right: 5em;*/
+/*}*/
+/*.form-check-inline{*/
+/*    padding-right: 10em;*/
+/*}*/
+.form-check-input{
+    padding-right: 10em;
+}
+.col-sm{
+    margin-left: 0em;
+}
+.indent{
+    text-indent: 40px;
+}
+label{
+    font-weight: bold;
+}
+form{
+    padding: 2em;
+}
+#Info{
+    margin-left: 6em;
+}
+#gridIDRadios1, #gridIDRadios2, #gridIDRadios3{
+    margin-right: 2em;
+}
