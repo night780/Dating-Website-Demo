@@ -52,11 +52,11 @@ $f3->route('GET /CreateProfile', function(){
 });
 //Define a createProfile2 route
 $f3->route('POST /CreateProfile2', function(){
-    var_dump($_POST);
+
     $_SESSION['fname']=$_POST['fname'];
     $_SESSION['lname']=$_POST['lname'];
     $_SESSION['Age']=$_POST['Age'];
-    $_SESSION['gridRadios1']=$_POST['gridRadios1'];
+    $_SESSION['gridRadios']=$_POST['gridRadios'];
     $_SESSION['Phone']=$_POST['Phone'];
 
     $view = new Template();
@@ -64,8 +64,8 @@ $f3->route('POST /CreateProfile2', function(){
 });
 //Define a createProfile3 route
 $f3->route('POST /CreateProfile3', function(){
-    var_dump($_POST);
-    $_SESSION['gridRadios']=$_POST['gridRadios'];
+
+    $_SESSION['gridRadios1']=$_POST['gridRadios1'];
     $_SESSION['state']=$_POST['state'];
     $_SESSION['aboutMe']=$_POST['aboutMe'];
     $_SESSION['email']=$_POST['email'];
@@ -74,7 +74,6 @@ $f3->route('POST /CreateProfile3', function(){
 });
 //Define a summary route
 $f3->route('GET|POST /summary', function(){
-    var_dump ($_POST);
     if (empty($_POST['conds'])) {
         $conds = "No Hobby selected";
     }
