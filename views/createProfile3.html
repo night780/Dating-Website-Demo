@@ -10,41 +10,35 @@
 <h2 class="text-center">Interests</h2>
 <hr class="style1">
 <br>
-<form class = "container" method="post" action="summary">
+<form class = "container" method="post" action="#">
+    <!-- get meal -->
+    <div class="form-group">
+        <div class = "container">
 
-<!--Two containers, one for indoor one for outdoor. Checkboxes. Uses separate style sheet-->
-    <div class = "container">
-        <legend>Indoor Interests</legend>
-        <div class="row ">
-        <input type="checkbox" name="conds[]" value="tv">tv
-        <input type="checkbox" name="conds[]" value="movies">movies
-        <input type="checkbox" name="conds[]" value="Cooking" >Cooking
-        <input type="checkbox" name="conds[]" value="Board" >Board Games
-        </div>
-
-        <div class="row ">
-        <input type="checkbox" name="conds[]" value="puzzles" >puzzles
-        <input type="checkbox" name="conds[]" value="reading" >reading
-        <input type="checkbox" name="conds[]" value="playingCards" >Playing Cards
-        <input type="checkbox" name="conds[]" value="videoGames" >video Games
-        </div>
-    </div>
-    <br>
-    <div class = "container">
-        <legend>Outdoor Interests</legend>
-        <div class="row ">
-        <input type="checkbox" name="conds[]" value="hiking" >Hiking
-        <input type="checkbox" name="conds[]" value="biking" >Biking
-        <input type="checkbox" name="conds[]" value="swimming" >Swimming
-        <input type="checkbox" name="conds[]" value="collecting" >Collecting
-        </div>
-
-            <div class="row" >
-        <input type="checkbox" name="conds[]" value="walking" >Walking
-        <input type="checkbox" name="conds[]" value="climbing" >Climbing
+            <legend class="control-label text-center font-weight-bold">Indoor</legend>
+            <br>
+            <div class="row ">
+            <repeat group="{{ @conds }}" value="{{ @conds }}">
+                <label><input type="checkbox" name="conds[]" value="{{ @conds }}" id="conds">
+                    {{ ucfirst(@conds)}}</label><br>
+            </repeat>
             </div>
+            <div class = "container">
+                <legend class="control-label text-center font-weight-bold">Outdoor</legend>
+                <br>
+                <div class="row ">
+                <repeat group="{{ @conds2 }}" value="{{ @conds2 }}">
+                    <label><input type="checkbox" name="conds[]" value="{{ @conds2 }}" >
+                        {{ ucfirst(@conds2)}}</label><br>
+                </repeat>
+                </div>
 
-</div>
+    <!--        Display error if true-->
+
+    <check if="{{ isset(@errors['conds']) }}">
+        <span class="err text-danger">{{ @errors['conds']}}</span>
+    </check>
+
     <div class="text-right">
         <button class="btn btn-primary" type="submit">Next</button>
     </div>

@@ -51,15 +51,23 @@ Prints all form data using session vars from index.php
 <!--   Blank profile picture -->
     <img src="images/PpPic.jpg" class=" col-sm-5 rounded float-right" alt="Profile Pic">
 
-    <!--    <div class = "col-md-12">-->
-<!--    <img src="images/PpPic.jpg" class=" rounded float-right" alt="Profile Pic">-->
-<!--</div>-->
+
 
 
 </div>
+    <br>
 <!--    Prints outside of table to match rubric formatting-->
-    <p>Bio: </p>
-    <p>{{ @SESSION.aboutMe }}</p>
+<div class="row">
+    <table class="table col-sm-12">
+        <tbody class="col-5 float-right">
+        <tr>
+            <th>Bio: </th>
+            <td class="text-center">{{ @SESSION.aboutMe }}</td>
+        </tr>
+        </tbody>
+        </thead>
+    </table>
+</div>
 <!--Button points to nowhere-->
 <div class="col-md-12 text-center">
     <a href="home" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Contact Me!</a>

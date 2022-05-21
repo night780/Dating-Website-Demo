@@ -15,19 +15,28 @@
 <br>
 
 <!--Form Start-->
-<form class = "container" method="post" action = "createProfile2">
+<form class = "container" method="post" action = "#">
     <div class = "row">
     <div class = "col-lg-5">
         <div class="form-group">
 <!--            First Name -->
             <label for="fname">First Name</label>
-            <input type="text" class="form-control " id="fname" name="fname">
+            <input type="text" class="form-control " id="fname" name="fname" value = "{{@userFname}}">
         </div>
+<!--        Display error if true-->
+        <check if="{{ isset(@errors['fname']) }}">
+            <span class="err text-danger">{{ @errors['fname']}}</span>
+        </check>
+
         <div class="form-group ">
 <!--            Last name -->
             <label for="lname">Last Name</label>
-            <input type="text" class="form-control " id="lname" name = "lname">
+            <input type="text" class="form-control " id="lname" name = "lname" value = "{{@userLname}}">
         </div>
+        <!--        Display error if true-->
+        <check if="{{ isset(@errors['lname']) }}">
+            <span class="err text-danger">{{ @errors['lname']}}</span>
+        </check>
         </div>
 <!--        Notes-->
         <p class = "col-lg-3 border rounded bg-light" id = "Info"><b>Notes: </b>All information entered is protected by out privacy
@@ -36,8 +45,13 @@
     <div class="form-group col-lg-5">
 <!--        Age -->
         <label for="Age">Age</label>
-        <input type="text" class="form-control" id="Age" name="Age">
+        <input type="text" class="form-control" id="Age" name="Age" value = "{{@userAge}}">
 <br>
+        <!--        Display error if true-->
+        <check if="{{ isset(@errors['Age']) }}">
+            <span class="err text-danger">{{ @errors['Age']}}</span>
+            <br>
+        </check>
 
 <!--What is your gender-->
             <label >Gender</label>
@@ -62,9 +76,15 @@
 <!--Phone number-->
         <div class="form-group col-lg-5">
             <label for="Phone">Phone Number</label>
-            <input type="text" class="form-control" id="Phone" name = "Phone">
+            <input type="text" class="form-control" id="Phone" name = "Phone" value = "{{@userPhone}}">
 
         </div>
+
+    <!--        Display error if true-->
+    <check if="{{ isset(@errors['Phone']) }}">
+        <span class="err text-danger">{{ @errors['Phone']}}</span>
+        <br>
+    </check>
     <div class="text-right">
 <!--        submit-->
         <button class="btn btn-primary" type="submit">Next</button>
