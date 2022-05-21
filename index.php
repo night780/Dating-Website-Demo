@@ -71,7 +71,7 @@ $f3->route('GET|POST /CreateProfile', function ($f3) {
 
         } else {
             //if data is not valid store an error message
-            $f3->set('errors["fname"]', 'Please enter a name at least two characters');
+            $f3->set('errors["fname"]', 'Please enter a alphabetic name at least two characters');
         }
 
         //L name Validation
@@ -81,7 +81,7 @@ $f3->route('GET|POST /CreateProfile', function ($f3) {
 
         } else {
             //if data is not valid store an error message
-            $f3->set('errors["lname"]', 'Please enter a name at least two characters');
+            $f3->set('errors["lname"]', 'Please enter a alphabetic name at least two characters');
         }
 
 //        AGE validation

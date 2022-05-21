@@ -4,7 +4,7 @@
     function validname($name): bool
     {
         //True if both names are valid (over 2 char) false if not
-        return (strlen($name) >= 2) and $name != NULL;
+        return (strlen($name) >= 2) and $name != NULL and (ctype_alpha($name));
     }
 
     function validAge($Age): bool
