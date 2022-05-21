@@ -7,8 +7,6 @@ session_start();
 
 //Require the autoload file
 require_once('vendor/autoload.php');
-require_once('model/validation.php');
-require_once ('model/datalayer.php');
 
 //creates an instance of base class
 $f3 = Base::instance();
