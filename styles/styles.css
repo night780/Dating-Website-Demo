@@ -46,3 +46,6 @@ form{
 #gridIDRadios1, #gridIDRadios2, #gridIDRadios3{
     margin-right: 2em;
 }
+span{
+    font-weight: normal;
+}
