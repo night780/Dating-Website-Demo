@@ -1,14 +1,12 @@
 <?php
 
+
 class PremiumMember extends Member
 {
 
+    private array $_inDoorIntrests;
 
-    private array $_inDoorIntrests = array("tv", "movies", "Cooking", "Board"
-    , "puzzles", "reading", "playingCards", "videoGames");
-
-    private array $_outDoorIntrests = array("hiking", "biking", "swimming", "collecting"
-    , "walking", "climbing");
+    private array $_outDoorIntrests;
 
     /**
      * @return array|string[]

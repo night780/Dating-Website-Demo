@@ -1,14 +1,16 @@
 <?php
 
 
-//Starts session
-session_start();
+
 
 //Require the autoload file
 require_once('vendor/autoload.php');
 
+//Starts session
+session_start();
 //creates an instance of base class
 $f3 = Base::instance();
+
 $con = new Controller($f3);
 $dataLayer = new DataLayer();
 
@@ -60,6 +62,7 @@ $f3->route('GET|POST /CreateProfile3', function ($f3) {
 });
 //Define a summary route
 $f3->route('GET|POST /summary', function () {
+    var_dump($_SESSION['member']);
     $GLOBALS['con']->summary();
 });
 

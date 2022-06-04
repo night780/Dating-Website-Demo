@@ -1,7 +1,6 @@
 <?php
 
 
-
 class Controller
 {
     private $_f3; //F3 object
@@ -38,11 +37,10 @@ class Controller
     function CreateProfile($f3)
     {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-
+            var_dump($_POST);
             //get name from post array
             $fname = $_POST['fname'];
             $f3->set('userFname', $fname);
-
 
             $membership = $_POST['membership'];
             $f3->set('membership', $membership);
@@ -56,9 +54,21 @@ class Controller
             $Phone = $_POST['Phone'];
             $f3->set('userPhone', $Phone);
 
+            $gridRadios = $_POST['gridRadios'];
+            $f3->set('userGender', $gridRadios);
+
+            if (!empty($membership)) {
+                $membership = true;
+                $member = new PremiumMember();
+
+            } else {
+                $membership = false;
+                $member = new Member();
+                $_SESSION['conds']='Upgrade to a Premium Member for this feature!';
+            }
+
             //Fname validation
             if (Validation::validname($fname)) {
-                $member = new Member();
 
                 $member->setFname($fname);
 
@@ -73,8 +83,10 @@ class Controller
 
             //L name Validation
             if (Validation::validName($lname)) {
+
                 //store in session array
                 $_SESSION['lname'] = $lname;
+
                 $member->setLname($lname);
             } else {
                 //if data is not valid store an error message
@@ -83,8 +95,10 @@ class Controller
 
 //        AGE validation
             if (Validation::validAge($Age)) {
+
                 //store in session array
                 $_SESSION['Age'] = $Age;
+
                 $member->setAge($Age);
 
             } else {
@@ -94,27 +108,20 @@ class Controller
 
             //Phone validation
             if (Validation::validPhone($Phone)) {
+
                 //store in session array
                 $_SESSION['Phone'] = $Phone;
+
                 $member->setPhone($Phone);
             } else {
                 //if data is not valid store an error message
                 $f3->set('errors["Phone"]', 'Please enter a valid phone number');
             }
 
-
-            if (!empty($membership)) {
-                $membership = 'PremiumMember';
-
-            } else {
-                $membership = 'Member';
-            }
-
             $_SESSION['membership'] = $membership;
-            $_SESSION['gridRadios'] = $_POST['gridRadios'];
 
             if (empty($f3->get('errors'))) {
-
+                if($gridRadios == !null){ $member->setGender($gridRadios);}
                 header('location: createProfile2');
             }
         }
@@ -125,8 +132,12 @@ class Controller
 
     function CreateProfile2($f3)
     {
+        $member = $_SESSION['member'];
+
         //Email validation
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+
 
             //Email
             $email = $_POST['email'];
@@ -140,23 +151,41 @@ class Controller
             $gridRadios1 = $_POST['gridRadios1'];
             $f3->set('gridRadios1', $gridRadios1);
 
+            $state = $_POST['state'];
+            $f3->set('state', $state);
+
+            $bio = $_POST['bio'];
+            $f3->set('bio', $bio);
 
             if (Validation::validEmail($email)) {
                 //store in session array
-                $_SESSION['email'] = $email;
 
-                $_SESSION['member']->setEmail($email);
+                $member->setEmail($email);
+                $member->setState($state);
+                if($aboutMe == !null){$member->setBio($aboutMe);}
+                else{
+                    $member->setBio
+                    ('Uh oh! No bio here');
+                }
 
-                header('location: createProfile3');
+                    if($gridRadios1 == !null){$member->setSeeking
+                    ($gridRadios1);}
+                    else{
+                        $member->setSeeking
+                        ('n/a');
+                    }
+
             } else {
                 //if data is not valid store an error message
                 $f3->set('errors["email"]', 'Please enter a valid email');
             }
+            if($_SESSION['membership']==false) {
+                header('location: Summary');
+            }else{
+                header('location: createProfile3');
+            }
         }
-        $_SESSION['gridRadios1'] = $_POST['gridRadios1'];
-        $_SESSION['state'] = $_POST['state'];
-        $_SESSION['email'] = $_POST['email'];
-        $_SESSION['aboutMe'] = $_POST['aboutMe'];
+
 
         $view = new Template();
         echo $view->render('views/createProfile2.html');
@@ -165,17 +194,18 @@ class Controller
     function CreateProfile3($f3)
     {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-
+            $member = $_SESSION['member'];
             $conds = $_POST['conds'];
 
 
             if (Validation::validIndoor($conds) and Validation::validOutdoor($conds)) {
+                $_SESSION['conds'] = array($conds);
                 if (empty($_POST['conds'])) {
                     $conds = "No Hobby selected";
                 } else {
+                    if($conds == !null){$member->setInDoorIntrests($conds);}
                     $conds = implode(", ", $_POST['conds']);
                 }
-                $_SESSION['conds'] = $conds;
                 header('location: summary');
             } else {
                 $f3->set('errors["conds"]', 'Invalid');
@@ -184,13 +214,13 @@ class Controller
         $f3->set('conds', datalayer::getConds());
         $f3->set('conds2', datalayer::getConds2());
 
-
         $view = new Template();
         echo $view->render('views/createProfile3.html');
     }
 
     function summary()
     {
+        var_dump($_POST);
         $view = new Template();
         echo $view->render('views/Summary.html');
     }    //end of class

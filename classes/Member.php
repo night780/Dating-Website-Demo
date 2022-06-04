@@ -13,16 +13,22 @@ class Member
     private string $_bio;
 
     /**
-     * @param String $_fname
-     * @param String $_lname
-     * @param int $_age
-     * @param String $_gender
-     * @param String $_phone
+     * @param string $fname
+     * @param string $lname
+     * @param int $age
+     * @param string $gender
+     * @param string $phone
+     * @param string $email
      */
-
-    public function __construct()
+    public function __construct(string $fname = '', string $lname = '', int
+    $age = 55, string $gender = '', string $phone = '', string $email = '')
     {
-
+        $this->_fname = $fname;
+        $this->_lname = $lname;
+        $this->_age = $age;
+        $this->_gender = $gender;
+        $this->_phone = $phone;
+        $this->_email = $email;
     }
 
     /**
@@ -36,7 +42,7 @@ class Member
     /**
      * @param String $fname
      */
-    public function setFname(string $fname): void
+    public function setFname(string $fname)
     {
         $this->_fname = $fname;
     }

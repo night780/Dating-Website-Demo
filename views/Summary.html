@@ -15,35 +15,37 @@ Prints all form data using session vars from index.php
     <tbody class="float-left">
     <tr>
         <th>Name:</th>
-        <td>{{ @SESSION.fname }} {{ @SESSION.lname }}</td>
+        <td>{{@SESSION.member->getFname() }} {{@SESSION.member->getLname()
+            }}</td>
     </tr>
     <tr>
         <th>Age:</th>
-        <td>{{ @SESSION.Age }}</td>
+        <td>{{ @SESSION.member->getAge() }}</td>
     </tr>
     <tr>
         <th>Gender: </th>
-        <td>{{ @SESSION.gridRadios }}</td>
+        <td>{{ @SESSION.member->getGender() }}</td>
     </tr>
     <tr>
         <th>Phone Number:</th>
-        <td>{{ @SESSION.Phone }}</td>
+        <td>{{ @SESSION.member->getPhone() }}</td>
     </tr>
     <tr>
         <th>Email: </th>
-        <td>{{ @SESSION.email }}</td>
+        <td>{{ @SESSION.member->getEmail()
+            }}</td>
     </tr>
     <tr>
         <th>State: </th>
-        <td>{{ @SESSION.state }}</td>
+        <td>{{ @SESSION.member->getState() }}</td>
     </tr>
     <tr>
         <th>Seeking: </th>
-        <td>{{ @SESSION.gridRadios1 }}</td>
+        <td>{{ @SESSION.member->getSeeking() }}</td>
     </tr>
     <tr>
         <th>Interests: </th>
-        <td>{{ @SESSION.conds }}</td>
+        <td>{{ @SESSION.member->getInDoorIntrests() }}</td>
     </tr>
     </tbody>
     </thead>
@@ -62,7 +64,7 @@ Prints all form data using session vars from index.php
         <tbody class="col-5 float-right">
         <tr>
             <th>Bio: </th>
-            <td class="text-center">{{ @SESSION.aboutMe }}</td>
+            <td class="text-center">{{ @SESSION.member->getBio() }}</td>
         </tr>
         </tbody>
         </thead>
