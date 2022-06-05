@@ -12,6 +12,9 @@ class Member
     private string $_seeking;
     private string $_bio;
 
+    private array $_tempin;
+    private array $_tempout;
+
     /**
      * @param string $fname
      * @param string $lname
@@ -173,6 +176,38 @@ class Member
     public function setBio(string $bio)
     {
         $this->_bio = $bio;
+    }
+
+    /**
+     * @return array
+     */
+    public function getTempin(): array
+    {
+        return $this->_tempin;
+    }
+
+    /**
+     * @param array $tempin
+     */
+    public function setTempin(array $tempin): void
+    {
+        $this->_tempin = $tempin;
+    }
+
+    /**
+     * @return array
+     */
+    public function getTempout(): array
+    {
+        return $this->_tempout;
+    }
+
+    /**
+     * @param array $tempout
+     */
+    public function setTempout(array $tempout): void
+    {
+        $this->_tempout = $tempout;
     }
 
 

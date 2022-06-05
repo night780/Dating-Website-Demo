@@ -64,7 +64,7 @@ class Controller
             } else {
                 $membership = false;
                 $member = new Member();
-                $_SESSION['conds']='Upgrade to a Premium Member for this feature!';
+                $_SESSION['conds'] = 'Upgrade to a Premium Member for this feature!';
             }
 
             //Fname validation
@@ -121,7 +121,9 @@ class Controller
             $_SESSION['membership'] = $membership;
 
             if (empty($f3->get('errors'))) {
-                if($gridRadios == !null){ $member->setGender($gridRadios);}
+                if ($gridRadios == !null) {
+                    $member->setGender($gridRadios);
+                }
                 header('location: createProfile2');
             }
         }
@@ -136,7 +138,6 @@ class Controller
 
         //Email validation
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-
 
 
             //Email
@@ -162,26 +163,28 @@ class Controller
 
                 $member->setEmail($email);
                 $member->setState($state);
-                if($aboutMe == !null){$member->setBio($aboutMe);}
-                else{
+                if ($aboutMe == !null) {
+                    $member->setBio($aboutMe);
+                } else {
                     $member->setBio
                     ('Uh oh! No bio here');
                 }
 
-                    if($gridRadios1 == !null){$member->setSeeking
-                    ($gridRadios1);}
-                    else{
-                        $member->setSeeking
-                        ('n/a');
-                    }
+                if ($gridRadios1 == !null) {
+                    $member->setSeeking
+                    ($gridRadios1);
+                } else {
+                    $member->setSeeking
+                    ('n/a');
+                }
 
             } else {
                 //if data is not valid store an error message
                 $f3->set('errors["email"]', 'Please enter a valid email');
             }
-            if($_SESSION['membership']==false) {
+            if ($_SESSION['membership'] == false) {
                 header('location: Summary');
-            }else{
+            } else {
                 header('location: createProfile3');
             }
         }
@@ -195,16 +198,26 @@ class Controller
     {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $member = $_SESSION['member'];
+            $GLOBALS['member'];
             $conds = $_POST['conds'];
+            $conds2 = $_POST['conds2'];
 
 
-            if (Validation::validIndoor($conds) and Validation::validOutdoor($conds)) {
-                $_SESSION['conds'] = array($conds);
-                if (empty($_POST['conds'])) {
+            if (Validation::validIndoor($conds) and Validation::validOutdoor
+                ($conds2)) {
+                $_SESSION['conds'] = $conds;
+                $_SESSION['conds2'] = $conds2;
+
+                if (empty($_POST['conds']) and empty($_POST['conds2'])) {
                     $conds = "No Hobby selected";
                 } else {
-                    if($conds == !null){$member->setInDoorIntrests($conds);}
-                    $conds = implode(", ", $_POST['conds']);
+                    if ($conds == !null) {
+                        $member->setInDoorIntrests($conds);
+
+                    }
+                    if ($conds2 == !null) {
+                        $member->setOutDoorIntrests($conds2);
+                    }
                 }
                 header('location: summary');
             } else {
@@ -218,10 +231,31 @@ class Controller
         echo $view->render('views/createProfile3.html');
     }
 
-    function summary()
+    function summary($f3)
     {
+        $member = $_SESSION['member'];
+
+
         var_dump($_POST);
         $view = new Template();
+
+        if ($_SESSION['membership'] == true) {
+
+            if ($_SESSION['conds'] == !null) {
+                $f3->set('errors["interest"]', $member->getInDoorIntrests());
+                $_SESSION['object'] = implode(", ", $member->getInDoorIntrests
+                ());
+            }
+
+            if ($_SESSION['conds2'] == !null) {
+                $f3->set('errors["interest"]', $member->getOutDoorIntrests());
+                $_SESSION['object2'] = implode(", ",
+                    $member->getOutDoorIntrests());
+
+            }
+        }
         echo $view->render('views/Summary.html');
+
+        //session_destroy();
     }    //end of class
 }

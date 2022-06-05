@@ -5,15 +5,16 @@ class PremiumMember extends Member
 {
 
     private array $_inDoorIntrests;
-
     private array $_outDoorIntrests;
 
     /**
      * @return array|string[]
      */
-    public function getInDoorIntrests(): array
+    public function getInDoorIntrests()
     {
-        return $this->_inDoorIntrests;
+        $array = $this->_inDoorIntrests;
+        implode(",",  $array);
+        return  $this->_inDoorIntrests = $array;
     }
 
     /**
@@ -29,7 +30,9 @@ class PremiumMember extends Member
      */
     public function getOutDoorIntrests(): array
     {
-        return $this->_outDoorIntrests;
+        $array = $this->_outDoorIntrests;
+        implode(",",  $array);
+        return  $this->_outDoorIntrests = $array;
     }
 
     /**

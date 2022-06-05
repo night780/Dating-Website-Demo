@@ -61,9 +61,9 @@ $f3->route('GET|POST /CreateProfile3', function ($f3) {
     $GLOBALS['con']->CreateProfile3($f3);
 });
 //Define a summary route
-$f3->route('GET|POST /summary', function () {
+$f3->route('GET|POST /summary', function ($f3) {
     var_dump($_SESSION['member']);
-    $GLOBALS['con']->summary();
+    $GLOBALS['con']->summary($f3);
 });
 
 //runs fat free
