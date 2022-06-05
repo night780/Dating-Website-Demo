@@ -69,7 +69,7 @@ class Controller
     function CreateProfile($f3)
     {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            var_dump($_POST);
+
             //get name from post array
             $fname = $_POST['fname'];
             $f3->set('userFname', $fname);
@@ -283,7 +283,7 @@ class Controller
         $member = $_SESSION['member'];
 
 
-        var_dump($_POST);
+
         $view = new Template();
 
         if ($_SESSION['membership'] == true) {

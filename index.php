@@ -75,7 +75,7 @@ $f3->route(/**
  * @param $f3
  * @return void
  */ 'GET|POST /CreateProfile2', function ($f3) {
-    var_dump($_SESSION);
+
     $GLOBALS['con']->CreateProfile2($f3);
 });
 //Define a createProfile3 route
@@ -84,7 +84,7 @@ $f3->route(/**
  * @param $f3
  * @return void
  */ 'GET|POST /CreateProfile3', function ($f3) {
-    var_dump($_SESSION);
+
     $GLOBALS['con']->CreateProfile3($f3);
 });
 //Define a summary route
@@ -93,7 +93,7 @@ $f3->route(/**
  * @param $f3
  * @return void
  */ 'GET|POST /summary', function ($f3) {
-    var_dump($_SESSION['member']);
+
     $GLOBALS['con']->summary($f3);
 });
 
