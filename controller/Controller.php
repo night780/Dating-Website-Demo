@@ -1,39 +1,71 @@
 <?php
 
 
+/**
+ *Controller class for handling indexs logic/page interlinking
+ */
 class Controller
 {
+    /**
+     * private f3 hive var
+     * @var
+     */
     private $_f3; //F3 object
 
+    /**
+     * default constructor for f3
+     * @param $f3
+     */
     function __construct($f3)
     {
         $this->_f3 = $f3;
     }
 
+    /**
+     * Calls and executes home page
+     * @return void
+     */
     function home()
     {
         $view = new Template();
         echo $view->render('views/home.html');
     }
 
+    /**
+     * Calls and executes features page
+     * @return void
+     */
     function Features()
     {
         $view = new Template();
         echo $view->render('views/Features.html');
     }
 
+    /**
+     * Calls and executes entry page
+     * @return void
+     */
     function entry()
     {
         $view = new Template();
         echo $view->render('views/entry.html');
     }
 
+    /**
+     * Calls and executes login page
+     * @return void
+     */
     function LoginPage()
     {
         $view = new Template();
         echo $view->render('views/LoginPage.html');
     }
 
+    /**
+     * Calls and executes logic on the creatprofile page
+     * @param $f3
+     * @return void
+     */
     function CreateProfile($f3)
     {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -132,6 +164,11 @@ class Controller
         echo $view->render('views/createProfile.html');
     }
 
+    /**
+     * Calls and executes logic on the creatprofile2 page
+     * @param $f3
+     * @return void
+     */
     function CreateProfile2($f3)
     {
         $member = $_SESSION['member'];
@@ -194,6 +231,11 @@ class Controller
         echo $view->render('views/createProfile2.html');
     }
 
+    /**
+     * Calls and executes logic on the creat profile3 page
+     * @param $f3
+     * @return void
+     */
     function CreateProfile3($f3)
     {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -231,6 +273,11 @@ class Controller
         echo $view->render('views/createProfile3.html');
     }
 
+    /**
+     * Calls and executes logic on the summary page
+     * @param $f3
+     * @return void
+     */
     function summary($f3)
     {
         $member = $_SESSION['member'];
@@ -243,13 +290,13 @@ class Controller
 
             if ($_SESSION['conds'] == !null) {
                 $f3->set('errors["interest"]', $member->getInDoorIntrests());
-                $_SESSION['object'] = implode(", ", $member->getInDoorIntrests
+                $_SESSION['object'] = implode(', ', $member->getInDoorIntrests
                 ());
             }
 
             if ($_SESSION['conds2'] == !null) {
                 $f3->set('errors["interest"]', $member->getOutDoorIntrests());
-                $_SESSION['object2'] = implode(", ",
+                $_SESSION['object2'] = implode(', ',
                     $member->getOutDoorIntrests());
 
             }

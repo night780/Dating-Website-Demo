@@ -1,21 +1,69 @@
 <?php
 
+/**
+ * Represents a Member
+ */
 class Member
 {
+    /**
+     * First name
+     * @var string
+     */
     private string $_fname;
-    private string $_lname;
-    private int $_age;
-    private string $_gender;
-    private string $_phone;
-    private string $_email;
-    private string $_state;
-    private string $_seeking;
-    private string $_bio;
-
-    private array $_tempin;
-    private array $_tempout;
 
     /**
+     * Last name
+     * @var string
+     */
+    private string $_lname;
+
+    /**
+     * Age
+     * @var int
+     */
+    private int $_age;
+
+    /**
+     * Users Gender
+     * @var string
+     */
+    private string $_gender;
+
+    /**
+     * Users Phone
+     * @var string
+     */
+    private string $_phone;
+
+    /**
+     * Users Email
+     * @var string
+     */
+    private string $_email;
+
+    /**
+     * Users Home state
+     * @var string
+     */
+    private string $_state;
+
+    /**
+     * Users seeking partners gender
+     * @var string
+     */
+    private string $_seeking;
+
+    /**
+     * Users Bio
+     * @var string
+     */
+    private string $_bio;
+
+
+    /**
+     * Member constructor
+     * Represents a member
+     *
      * @param string $fname
      * @param string $lname
      * @param int $age
@@ -35,6 +83,7 @@ class Member
     }
 
     /**
+     * gets Users First name
      * @return String
      */
     public function getFname(): string
@@ -43,6 +92,7 @@ class Member
     }
 
     /**
+     * sets Users First name
      * @param String $fname
      */
     public function setFname(string $fname)
@@ -51,6 +101,7 @@ class Member
     }
 
     /**
+     * gets Users last name
      * @return String
      */
     public function getLname(): string
@@ -59,6 +110,7 @@ class Member
     }
 
     /**
+     * sets Users last name
      * @param String $lname
      */
     public function setLname(string $lname)
@@ -67,6 +119,7 @@ class Member
     }
 
     /**
+     * gets Users age
      * @return int
      */
     public function getAge(): int
@@ -75,6 +128,7 @@ class Member
     }
 
     /**
+     * sets Users age
      * @param int $age
      */
     public function setAge(int $age)
@@ -83,6 +137,7 @@ class Member
     }
 
     /**
+     * gets user gender
      * @return String
      */
     public function getGender(): string
@@ -91,6 +146,7 @@ class Member
     }
 
     /**
+     * sets Users gender
      * @param String $gender
      */
     public function setGender(string $gender)
@@ -99,6 +155,7 @@ class Member
     }
 
     /**
+     * gets Users phone number
      * @return String
      */
     public function getPhone(): string
@@ -107,6 +164,7 @@ class Member
     }
 
     /**
+     * sets Users phone number
      * @param String $phone
      */
     public function setPhone(string $phone)
@@ -115,6 +173,7 @@ class Member
     }
 
     /**
+     * gets user email
      * @return String
      */
     public function getEmail(): string
@@ -123,6 +182,7 @@ class Member
     }
 
     /**
+     * sets Users email
      * @param String $email
      */
     public function setEmail(string $email)
@@ -131,6 +191,7 @@ class Member
     }
 
     /**
+     * Gets Users home state
      * @return String
      */
     public function getState(): string
@@ -139,6 +200,7 @@ class Member
     }
 
     /**
+     * sets Users home state
      * @param String $state
      */
     public function setState(string $state)
@@ -147,6 +209,7 @@ class Member
     }
 
     /**
+     * Gets Users Seeking Gender
      * @return String
      */
     public function getSeeking(): string
@@ -155,6 +218,7 @@ class Member
     }
 
     /**
+     * Sets Users Seeking Gender
      * @param String $seeking
      */
     public function setSeeking(string $seeking)
@@ -163,6 +227,7 @@ class Member
     }
 
     /**
+     * Gets Users Bio
      * @return String
      */
     public function getBio(): string
@@ -171,43 +236,12 @@ class Member
     }
 
     /**
+     * Sets Users Bio
      * @param String $bio
      */
     public function setBio(string $bio)
     {
         $this->_bio = $bio;
-    }
-
-    /**
-     * @return array
-     */
-    public function getTempin(): array
-    {
-        return $this->_tempin;
-    }
-
-    /**
-     * @param array $tempin
-     */
-    public function setTempin(array $tempin): void
-    {
-        $this->_tempin = $tempin;
-    }
-
-    /**
-     * @return array
-     */
-    public function getTempout(): array
-    {
-        return $this->_tempout;
-    }
-
-    /**
-     * @param array $tempout
-     */
-    public function setTempout(array $tempout): void
-    {
-        $this->_tempout = $tempout;
     }
 
 
